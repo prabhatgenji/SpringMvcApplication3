@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+   http://www.springframework.org/schema/beans/spring-beans.xsd">
+   
+   <bean id="suhm"   class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+      <property name="mappings">
+         <props>
+           <prop key="home.htm">ufvc</prop>
+           <prop key="employee.htm">wsh</prop>
+          
+         </props>
+      </property>
+   </bean>
+   <!-- Controller class -->
+   <!-- <bean id="wc" class="com.nt.controller.HomeViewController"/>
+   <bean id="wsh" class="com.nt.controller.WishViewController"/>
+   <bean id="cus" class="com.nt.controller.ContactViewController"/>
+   <bean id="abt" class="com.nt.controller.AboutviewController"/> -->
+   <!-- ParameterisedViewController class -->
+    <bean id="wsh" class="com.nt.controller.ListEmpController">
+    <property name="eservice" ref="empservice"/>
+    </bean>
+    
+    
+    
+    
+   <bean id="ufvc" class="org.springframework.web.servlet.mvc.UrlFilenameViewController"/>
+  
+ <!--    <bean id="cus" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+   <property name="ViewName" value="contact_us"/>
+   </bean>
+     <bean id="abt" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+   <property name="ViewName" value="aboutus"/>
+   </bean> -->
+   <!-- ViewResolver -->
+   <bean id="ivr" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+      <property name="prefix"  value="/WEB-INF/pages/"/>
+      <property name="suffix"  value=".jsp"/>
+   </bean>
+  
+  
+   
+   
+   </beans>
